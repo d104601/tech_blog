@@ -8,3 +8,6 @@ No additional installation required. Click the link in "Deployed Website" below 
 
 ## Deployed Application
 https://tech-blog-by-taeyong-lee.herokuapp.com/
+
+## Application Screenshot
+![sample](https://github.com/d104601/tech_blog/blob/main/screenshot.jpg)
