@@ -16,6 +16,7 @@ router.get("/", withAuth, async (req, res) => {
       res.render("dashboard", {
         blogposts,
         logged_in: req.session.logged_in,
+        id: req.session.id
       });
     } catch (err) {
       res.status(500).json(err);
@@ -26,6 +27,7 @@ router.get("/add", withAuth, async (req, res) =>{
     try {
         res.render("addPost", {
             logged_in: req.session.logged_in,
+            id: req.session.id
         }); 
     } catch(err) {
         res.status(500).json(err);

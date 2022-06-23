@@ -3,12 +3,12 @@ const addPost = async (event) => {
   
     const title = document.querySelector("#title").value;
     const content = document.querySelector("#content").value;
-  
+
     const response = await fetch("/api/posts", {
       method: "POST",
       body: JSON.stringify({
         title,
-        content,
+        content
       }),
       headers: { "Content-Type": "application/json" },
     });
