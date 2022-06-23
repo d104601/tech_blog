@@ -10,11 +10,6 @@ Comment.init({
         primaryKey: true,
         autoIncrement: true
     },
-    time: {
-        type: "TIMESTAMP",
-        defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
-        allowNull: false,
-    },
     content: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -38,7 +33,7 @@ Comment.init({
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'post'
+    modelName: 'comment'
 });
 
 module.exports = Comment;

@@ -10,30 +10,24 @@ Post.init({
         primaryKey: true,
         autoIncrement: true
     },
-    time: {
-        type: "TIMESTAMP",
-        defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
-        allowNull: false,
-    },
     title: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
     },
     content: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
     },
     userId: {
         type: DataTypes.INTEGER,
         references: {
             model: "User",
-            key: 'id'
+            key: "id"
         }
-    },
+    }
 },
 {
     sequelize,
-    freezeTableName: true,
     underscored: true,
     modelName: 'post'
 });

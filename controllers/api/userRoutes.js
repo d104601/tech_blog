@@ -1,6 +1,5 @@
-const { User, Post, Comment } = require("../../models");
-
 const router = require("express").Router();
+const { User, Post, Comment } = require("../../models");
 
 router.get("/", async (req, res) =>{
     try {
@@ -8,7 +7,7 @@ router.get("/", async (req, res) =>{
             attributes: {
                 exclude: ['password']
             }
-        })
+        });
     
         res.status(200).json(users);
     } catch (err) {
