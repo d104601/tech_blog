@@ -29,22 +29,6 @@ router.get("/", withAuth, async (req,res) => {
   
 });
 
-router.get("/dashboard", withAuth, async (req, res) => {
-  try {
-      const dashboard = await Post.findAll({
-          where: {
-              userId: req.session.user_id
-          },
-
-          include:[{model: User}, {model:Comment}]
-      })
-
-      const posts = dashboard.map(post => post.get({ plain: true }));
-      res.render('dashboard', { posts, loggedIn: true });
-  } catch (err) {
-      res.status(500).json(err); 
-  }
-})
 
 router.get('/login', async (req, res) => {
   if (req.session.logged_in) {

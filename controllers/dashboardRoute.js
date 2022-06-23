@@ -4,16 +4,22 @@ const withAuth = require('../utils/auth');
 
 router.get("/", withAuth, async (req, res) => {
     try {
-        const dashboard = await Post.findAll({
-            where: {
-                userId: req.session.user_id
-            },
-        })
-
-        const posts = dashboard.map(post => post.get({ plain: true }));
-        res.render('dashboard', { posts, loggedIn: true });
+      const posts = await Post.findAll({
+        where: {
+          userId: req.session.id,
+        },
+      });
+  
+      const blogposts = posts.map((blogpost) =>
+        blogpost.get({ plain: true })
+      );
+      res.render("dashboard", {
+        blogposts,
+        logged_in: req.session.logged_in,
+      });
     } catch (err) {
-        res.status(500).json(err); 
+      res.status(500).json(err);
     }
-})
+  });
+
 module.exports = router;
