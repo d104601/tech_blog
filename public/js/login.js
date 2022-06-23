@@ -8,18 +8,18 @@ async function loginFormHandler(event) {
       const response = await fetch('/api/users/login', {
         method: 'post',
         body: JSON.stringify({
-            username: username,
-            password: password
+          username,
+          password
         }),
         headers: { 'Content-Type': 'application/json' }
       });
   
       if (response.ok) {
-        document.location.replace('/dashboard/');
+        document.location.replace('/');
       } else {
         alert(response.statusText);
       }
     }
   }
 
-  document.querySelector('#submitButton').addEventListener('submit', loginFormHandler);
+  document.querySelector('#login').addEventListener('submit', loginFormHandler);

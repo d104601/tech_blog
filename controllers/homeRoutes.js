@@ -1,15 +1,15 @@
 const router = require('express').Router();
-const { User, Post } = require('../models');
+const { User, Post, Comment} = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get("/", withAuth, async (req,res) => {
   try {
     const postData = await Post.findAll({
-      attributes: ['id', 'time', 'title', 'content'],
+      attributes: ['id', 'created_at', 'title', 'content'],
       include: [
         {
           model: Comment,
-          attributes: ["id", "time", "content", "postId", "userId"],
+          attributes: ["id", "content", "postId", "userId"],
           include: {
             model: User,
             attributes: ["username"]
@@ -17,9 +17,9 @@ router.get("/", withAuth, async (req,res) => {
         }
       ]
     });
-    const posts = postData.map((post) => post.get({ plain: true}));
+    const posts = postData.map(post => post.get({ plain: true}));
 
-    res.render('home', {
+    res.render('homepage', {
       posts,
       logged_in: req.session.logged_in
     });
@@ -29,7 +29,6 @@ router.get("/", withAuth, async (req,res) => {
   
 });
 
-router.get("/dashboard", async (req, res) => {});
 
 router.get('/login', async (req, res) => {
   if (req.session.logged_in) {
@@ -44,8 +43,5 @@ router.get("/signup", async (req, res) => {
   res.render("signup");
 })
 
-router.get("/logout", async (req, res) => {
-  
-});
 
 module.exports = router;

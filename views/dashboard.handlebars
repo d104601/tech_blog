@@ -1,15 +1,18 @@
 <main>
   <div class="container">
-    <h1 class="text-center my-3">Your posts</h2>
+    <h1 class="text-center my-3">Your posts</h1>
+    <div class="text-center my-3">
+      <button class="btn btn-primary">Add Post</button>
+    </div>
     {{#if posts.length}}
     {{#each posts as |post|}}
     <div class="card my-3">
       <div class="card-body">
-        <h3 class="card-title">Sample title</h3>
-        <h4 class="card-subtitle mb-2 text-muted">Date</h4>
-        <p class="card-text">Sample body</p>
-        <a href="/edit" class="card-link">Edit</a>
-        <a href="/" class="card-link">Delete</a>
+        <h3 class="card-title">{{post.title}}</h3>
+        <h4 class="card-subtitle mb-2 text-muted">{{post.created_at}}</h4>
+        <p class="card-text">{{post.content}}</p>
+        <a href="dashboard/edit/{{post.id}}" class="card-link">Edit</a>
+        <a href="" class="card-link">Delete</a>
       </div>
     </div>
     {{/each}}
