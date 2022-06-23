@@ -1,7 +1,7 @@
 # Tech Blog
 
 ## Description
-
+CMS-style blog site that user can publish articles, blog posts, thoughts and opinions
 
 ## Installation
 No additional installation required. Click the link in "Deployed Website" below to run the application.
