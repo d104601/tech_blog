@@ -1,13 +1,44 @@
-<!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Tech Blog</title>
-        <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.3/css/bulma.min.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" />
     </head>
-
     <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <ul class="navbar-nav">
+                <li>
+                    <div class="navbar-brand px-3"><h2>Tech Blog</h2></div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/"><h3>Home</h3></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/dashboard"><h3>Dashboard</h3></a>
+                </li>
+                {{#if logged_in}}
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout"><h3>Sign Out</h3></a>
+                </li>
+                {{else}}
+                <li class="nav-item">
+                    <a class="nav-link" href="/login"><h3>Sign In</h3></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/join"><h3>Sign Up</h3></a>
+                </li>
+                {{/if}}
+            </ul>
+        </nav>
+            
+        <main>
+             <div class="container">
+                {{{ body }}}
+             </div>
+        </main>
 
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
