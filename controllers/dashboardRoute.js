@@ -1,6 +1,6 @@
 const router = require('express').Router();
-import { User, Post, Comment } from '../models';
-import withAuth from '../utils/auth';
+const { User, Post, Comment} = require('../models');
+const withAuth = require('../utils/auth');
 
 router.get("/", withAuth, async (req, res) => {
     try {
@@ -19,4 +19,4 @@ router.get("/", withAuth, async (req, res) => {
     }
 })
 
-export default router;
+module.exports = router;
