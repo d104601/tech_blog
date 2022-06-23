@@ -1,8 +1,8 @@
-* Temp Readme for Tech Blog
+# Temp Readme for Tech Blog
 
-** Features required
-*** Home
-*** Dashboard
+## Features required
+## Home
+## Dashboard
 
-*** Login
+## Login
 login page
