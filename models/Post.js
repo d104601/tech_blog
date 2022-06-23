@@ -28,6 +28,8 @@ Post.init({
 },
 {
     sequelize,
+    timestamps: true,
+    createdAt: true,
     underscored: true,
     modelName: 'post'
 });

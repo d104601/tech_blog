@@ -8,8 +8,6 @@ router.get("/", withAuth, async (req, res) => {
             where: {
                 userId: req.session.user_id
             },
-
-            include:[{model: User}, {model:Comment}]
         })
 
         const posts = dashboard.map(post => post.get({ plain: true }));
@@ -18,5 +16,4 @@ router.get("/", withAuth, async (req, res) => {
         res.status(500).json(err); 
     }
 })
-
 module.exports = router;
